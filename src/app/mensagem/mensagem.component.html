@@ -1,0 +1,37 @@
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;">Gerenciamento de Mensagens</p>
+<p style="font-family: Arial, Helvetica, sans-serif;">Home / <b>Mensagens</b></p>
+<div>
+    <div class="example-container" *ngIf="showForm">
+        <input placeholder="Name" type="text" [(ngModel)]="nome" id="nome" required><br/>
+        <input placeholder="Cargo" type="text" [(ngModel)]="cargo" id="cargo" required><br/>
+        <input placeholder="Texto" type="text" [(ngModel)]="texto" id="texto" required><br/>
+        <input placeholder="Título" type="text" [(ngModel)]="titulo" id="titulo" required><br/>
+        <input placeholder="Data envio" type="date" [(ngModel)]="dataenvio" id="dataenvio" required><br/>
+        <input placeholder="Data envio como string" type="text" [(ngModel)]="dataenvioasstring" id="dataenvioasstring" required><br/>
+        <button class="btn btn-primary" style="margin-bottom: 25px; background-color: #00b496; color: white;" (click)="saveMesage()">Salvar</button>
+      </div>
+    <div style="background-color: white;">
+        <b>Lista de Mensagens</b>
+    </div>
+    <button class="btn btn-button" style="background-color: #00b496; color: white;" (click)="btnNovaMensagem()">Nova Mensagem</button>
+    <div style="background-color: white;">
+        <input type="text" placeholder="Search in table">
+        <table>
+            <tr>
+                <th>Título</th>
+                <th>Texto</th>
+                <th>DataEnvio</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr *ngFor="let item of mensagens; let i = index">
+                <th>{{item.Titulo}}</th>
+                <th>{{item.Texto}}</th>
+                <th>{{item.DataEnvio}}</th>
+                <th>
+                    <input value="Excluir" btn="btn btn-danger" />
+                    <input value="Editar" class="btn btn-info" />
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
